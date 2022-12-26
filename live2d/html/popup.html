@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 42px;
+        height: 24px;
+      }
+
+      .switch .checkbox {
+        display: none;
+      }
+
+      .checkbox:checked + .slider {
+        background-color: #2196f3;
+      }
+
+      .checkbox:focus + .slider {
+        box-shadow: 0 0 1px #2196f3;
+      }
+
+      .checkbox:checked + .slider:before {
+        transform: translateX(21px);
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 34px;
+        background-color: #ccc;
+        transition: 0.4s;
+      }
+
+      .slider:before {
+        content: '';
+        position: absolute;
+        left: 0px;
+        bottom: 3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: #fff;
+        transition: 0.4s;
+      }
+    </style>
+    <style>
+      body {
+        font-family: 'Microsoft Yahei';
+        max-width: 100%;
+        min-width: 120px;
+        min-height: 100px;
+      }
+
+      .title {
+        height: 26px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #333;
+        border-bottom: 1px dashed #ccc;
+      }
+
+      .text {
+        margin-left: 6px;
+      }
+
+      .switch-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">看板娘目录</h1>
+    <div class="switch-item">
+      <label class="switch" id="switch-live2d">
+        <input class="checkbox" type="checkbox" checked />
+        <div class="slider"></div>
+      </label>
+      <span class="text">显示/隐藏</span>
+    </div>
+    <div class="switch-item">
+      <label class="switch" id="switch-grayscale">
+        <input class="checkbox" type="checkbox" />
+        <div class="slider"></div>
+      </label>
+      <span class="text">哀悼/生活</span>
+    </div>
+    <script src="../js/popup.js"></script>
+  </body>
+</html>

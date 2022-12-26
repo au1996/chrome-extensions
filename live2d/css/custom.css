@@ -1,0 +1,7 @@
+html.gray {
+  filter: grayscale(100%) !important;
+}
+
+html.colored {
+  filter: grayscale(0) !important;
+}

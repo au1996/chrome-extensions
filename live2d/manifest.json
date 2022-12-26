@@ -1,0 +1,51 @@
+{
+  // 清单版本
+  "manifest_version": 3,
+  // 扩展名称
+  "name": "看板娘",
+  // 扩展版本
+  "version": "1.0.0",
+  // 扩展描述
+  "description": "给页面加入一个看板娘，盯着你认真工作！",
+  // 图标，我全部用一个尺寸；文章最后会提供资源文件的链接
+  "icons": {
+    "16": "img/live2d.png",
+    "48": "img/live2d.png",
+    "128": "img/live2d.png"
+  },
+  // 右上角图标
+  "action": {
+    "default_icon": "img/live2d.png",
+    "default_title": "这是自己开发的一个Chrome扩展",
+    "default_popup": "html/popup.html"
+  },
+  // 页面权限
+  "permissions": ["storage", "contextMenus", "scripting"],
+  // 会一直常驻的后台JS
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  // 普通页面能够直接访问的扩展资源列表，如果不设置是无法直接访问的
+  "web_accessible_resources": [
+    {
+      "resources": ["js/inject.js"],
+      "matches": ["<all_urls>"],
+      "use_dynamic_url": true
+    }
+  ],
+  // 需要直接注入页面的JS
+  "content_scripts": [
+    {
+      // 匹配规则：匹配所有url
+      "matches": ["<all_urls>"],
+      // "matches": ["https://www.baidu.com/*"],
+      // 多个js会按顺序注入
+      "js": ["js/live2d.min.js", "js/live2d.0.min.js", "js/init.js"],
+      // CSS注意不要影响全局样式
+      "css": ["css/custom.css"],
+      // 代码注入的时间，可选值： "document_start", "document_end",  "document_idle"
+      // document_idle 表示页面空闲时; 默认就是document_idle
+      "run_at": "document_idle"
+    }
+  ]
+}
